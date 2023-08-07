@@ -4,18 +4,17 @@ from flask import Flask
 import json
 app = Flask(__name__)
 #Переменные
-start = str(datetime.now())
+start = datetime.now()
 info_json = dict({"start-program": start})
 #Каталоги сайта API
 
 @app.route('/time') #Время перехода в каталог
 def time():
-    a = str(datetime.now())
-    return dict({"time_now": a})
+    return {"time_now":datetime.now()}
 
 @app.route('/start-program') #Время запуска программы
 def start_program():
-    return dict({"start-program": start})
+    return {"start-program":start}
 
 start_program()
 
@@ -23,7 +22,7 @@ start_program()
 def server():
     return
 #Старт сайта
-app.run('0.0.0.0', debug=True)
+app.run('0.0.0.0')
 
 
 
