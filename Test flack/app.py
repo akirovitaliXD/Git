@@ -26,7 +26,7 @@ def server():
 
 @app.route('/info_pc')
 def info():
-    return '123'
+    return {'processor':{'name':uname().processor,'phisycal_core':psutil.cpu_count(logical=False),'all_core':psutil.cpu_count(logical=True),'freq_max':f"{psutil.cpu_freq().max:.2f}Ghz"}}
 
 #Старт сайта
 app.run('0.0.0.0')
