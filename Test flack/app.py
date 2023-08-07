@@ -1,7 +1,6 @@
 #Импорт библий
 from datetime import datetime
 from flask import Flask
-import json
 import psutil
 from platform import uname
 app = Flask(__name__)
@@ -26,7 +25,7 @@ def server():
 
 @app.route('/info_pc')
 def info():
-    return {'processor':{'name':uname().processor,'phisycal_core':psutil.cpu_count(logical=False),'all_core':psutil.cpu_count(logical=True),'freq_max':f"{psutil.cpu_freq().max:.2f}Ghz"}}
+    return {'processor':{'name':uname().processor,'phisycal_core':psutil.cpu_count(logical=False),'all_core':psutil.cpu_count(logical=True),'freq_max':f"{psutil.cpu_freq().max:.2f}Ghz"}, 'time': {'time_now':datetime.now(), 'start-program': start}}
 
 #Старт сайта
 app.run('0.0.0.0')
