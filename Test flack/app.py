@@ -2,6 +2,8 @@
 from datetime import datetime
 from flask import Flask
 import json
+import psutil
+from platform import uname
 app = Flask(__name__)
 #Переменные
 start = datetime.now()
@@ -20,7 +22,12 @@ start_program()
 
 @app.route('/server') #Потом придумаю что тут
 def server():
-    return
+    return '123'
+
+@app.route('/info_pc')
+def info():
+    return '123'
+
 #Старт сайта
 app.run('0.0.0.0')
 
